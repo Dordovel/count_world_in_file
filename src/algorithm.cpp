@@ -23,9 +23,10 @@ namespace
     std::string convert_to_lower_case(const std::string& str)
     {
 		const std::size_t size = str.size();
-
         std::string result;
-		result.reserve(size);
+
+		if(size > 15)
+			result.reserve(size);
 
 		for(std::size_t i = 0; i < size; ++i)
 			result[i] = std::tolower(str[i]);
