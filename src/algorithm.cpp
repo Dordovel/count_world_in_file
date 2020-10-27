@@ -22,9 +22,14 @@ namespace
 
     std::string convert_to_lower_case(const std::string& str)
     {
-        std::string result = str;
-        std::transform(std::begin(result), std::end(result), std::begin(result), [](auto val){
-                    return static_cast<char>(std::tolower(val));});
+		const std::size_t size = str.size();
+
+        std::string result;
+		result.reserve(size);
+
+		for(std::size_t i = 0; i < size; ++i)
+			result[i] = std::tolower(str[i]);
+
         return result;
     }
 };
